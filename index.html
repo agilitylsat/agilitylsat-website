@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agility LSAT</title>
+<meta name="description" content="Break into the 170s with one-on-one LSAT tutoring from a 180-scorer. Agility LSAT helps ambitious students move through the test smarter. Free consultation.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI4MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWExYTFhIiBzdHJva2Utd2lkdGg9IjQiLz4KICA8dGV4dCB4PSIxMDEiIHk9IjEzNiIgZm9udC1mYW1pbHk9Iidnb2VvcmdpYScsIHNlcmlmIiBmb250LXNpemU9IjEwOCIgZm9udC13ZWlnaHQ9IjUwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFhMWExYSI+QTwvdGV4dD4KPC9zdmc+Cg==">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --bg: #ffffff;
+    --bg-soft: #faf9f7;
+    --border: #e5e2dc;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 20px; font-weight: 600; }
+  .nav-logo svg { width: 34px; height: 34px; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: opacity 0.15s;
+  }
+  .nav-links a:hover { opacity: 0.6; }
+  .nav-right { display: flex; align-items: center; gap: 36px; }
+  .btn-book {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 22px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .btn-book:hover { background: #333; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span { width: 24px; height: 2px; background: var(--ink); display: block; }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 20px 32px 24px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 140px 0 120px;
+    background: var(--bg-soft);
+    text-align: center;
+  }
+  .hero .container { max-width: 800px; }
+  .hero h1 {
+    font-size: 46px;
+    line-height: 1.25;
+    margin-bottom: 24px;
+  }
+  .hero .trust {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 2px;
+  }
+  .btn-primary:hover { background: #333; }
+
+  /* ===== SECTIONS GENERAL ===== */
+  section { padding: 100px 0; }
+  .section-heading {
+    font-size: 34px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 13px;
+    overflow: hidden;
+    position: sticky;
+    top: 100px;
+  }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-body p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+  .about-body p.about-quote {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  /* ===== OUR APPROACH ===== */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 56px;
+  }
+  .principle h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .principle p {
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .approach { background: var(--bg-soft); }
+
+  /* ===== SERVICES ===== */
+  .services-sub {
+    font-size: 22px;
+    font-family: var(--serif);
+    margin: 40px 0 16px;
+  }
+  .services-sub:first-of-type { margin-top: 0; }
+  .services-intro {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 0 auto 8px;
+    text-align: center;
+  }
+  table.rates {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  table.rates th, table.rates td {
+    padding: 16px 20px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-size: 15px;
+  }
+  table.rates th {
+    background: var(--bg-soft);
+    font-weight: 600;
+  }
+  table.rates td:first-child { font-weight: 500; }
+  .rates-note { font-size: 13px; color: #888; margin-top: 12px; text-align: right; }
+  .consult-block { text-align: center; max-width: 640px; margin: 0 auto; }
+  .consult-block p { color: var(--ink-soft); margin-bottom: 16px; }
+
+  /* ===== GET STARTED ===== */
+  .get-started { background: var(--bg-soft); text-align: center; }
+  .get-started .container { max-width: 700px; }
+  .get-started p { font-size: 18px; color: var(--ink-soft); margin-bottom: 36px; }
+  .get-started .email-line { font-size: 14px; color: var(--ink-soft); margin-top: 24px; }
+  .get-started .email-line a { text-decoration: underline; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 36px 0;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .footer-logo { display: flex; align-items: center; }
+  .footer-logo svg { width: 28px; height: 28px; }
+  .footer-email a { text-decoration: underline; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero h1 { font-size: 32px; }
+    section { padding: 64px 0; }
+    .section-heading { font-size: 28px; margin-bottom: 32px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { position: static; aspect-ratio: 1/1; max-width: 280px; margin: 0 auto; }
+    .approach-grid { grid-template-columns: 1fr; gap: 32px; }
+    table.rates th, table.rates td { padding: 12px 10px; font-size: 13px; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="82" fill="none" stroke="#1a1a1a" stroke-width="4"/><text x="101" y="136" font-family="'Playfair Display', Georgia, serif" font-size="108" font-weight="500" text-anchor="middle" fill="#1a1a1a">A</text></svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#approach">Our Approach</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#get-started">Get Started</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="btn-book desktop-only">Book a Consultation</a>
+      <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#approach">Our Approach</a>
+    <a href="#services">Services</a>
+    <a href="#get-started">Get Started</a>
+    <a href="#" class="btn-book" style="margin-top:12px;text-align:center;">Book a Consultation</a>
+  </div>
+</nav>
+
+<!-- ===== SECTION 1: HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <h1>On the LSAT, intelligence only takes you so far.<br>Agility takes you the rest of the way.</h1>
+    <p class="trust">Tutoring from a 180-scorer for students who refuse to plateau.</p>
+    <a href="#" class="btn-primary">Book a Free Consultation &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-heading">About</h2>
+    <div class="about-grid">
+      <div class="about-photo">
+        [ Photo of Albert — add JPEG ]
+      </div>
+      <div class="about-body">
+        <p class="about-quote">&ldquo;I didn&rsquo;t think the LSAT would be so hard for me.&rdquo;</p>
+        <p>Sound familiar? Me too.</p>
+        <p>I&rsquo;m Albert, and I&rsquo;m a 180-scorer and LSAT instructor. I can tell you, though: that 180 did not come easily. Before my first practice test, I thought, &ldquo;I&rsquo;ve taken tests before. You study, and you keep studying until you get it, and then you take the test. Nothing new.&rdquo;</p>
+        <p>I was wrong. I worked through one of the popular textbooks from cover to cover, and then I bombed my first practice test. And the next. And the next. I understood the concepts and could handle untimed practice just fine, but I couldn&rsquo;t even come close to completing a timed section. I started to think I was inherently incapable of handling the LSAT. I was surprised and frustrated, because I&rsquo;d done well in university and had a Master&rsquo;s degree in mechanical engineering. I&rsquo;d taken hard tests before. So why was this so hard? What made the LSAT so infuriatingly different?</p>
+        <p>Part of it is that the test seems to want you to fail. It lays traps everywhere&mdash;in the stimulus, in the reading passages, and in the answer choices&mdash;and hopes you won&rsquo;t notice. You need to read with a level of precision that most of us have never had to do. (People usually don&rsquo;t try to write in a way that tricks the reader! The LSAT does.)</p>
+        <p>The other reason the LSAT is so hard is that it&rsquo;s one of the most aggressively timed tests in the world. Thinking that fast, let alone thinking clearly, is hard, even for very smart, very experienced students.</p>
+        <p>I learned that intelligence isn&rsquo;t enough if you want a competitive score on this test. To break into the 170s, you can&rsquo;t just be smart. You need to be agile. You need to spot the traps coming and be ready to dodge them. And when you encounter those extra-tough, curve-breaker questions, you need to know how to pivot, adapt your analysis, and adjust your approach to the answer choices depending on the time available.</p>
+        <p>This is the approach that got me to 180, and it&rsquo;s the approach I teach my students: an agile mindset that combines solid fundamentals and disciplined reasoning skills with a flexible methodology for reacting to the test&rsquo;s thornier spots. It&rsquo;s not a set of quick &ldquo;test hacks,&rdquo; and it takes real practice to perfect, but for those students who are committed to their law school goals and don&rsquo;t intend to compromise, the effort pays off.</p>
+        <p>I love teaching this test. Before starting Agility LSAT, I taught for one of the major test prep companies as a one-on-one tutor, group instructor, and curriculum writer. I decided to create my own tutoring service in order to teach the method that really worked for me and my students, without tacky buzzwords and without dumbing things down.</p>
+        <p>When I&rsquo;m not being a professional nerd, I love growing veggies on my balcony, hiking, watching Japanese superhero shows, and drinking too much coffee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: OUR APPROACH ===== -->
+<section id="approach" class="approach">
+  <div class="container">
+    <h2 class="section-heading">Our Approach</h2>
+    <div class="approach-grid">
+      <div class="principle">
+        <h3>Mastery</h3>
+        <p>When you hire an LSAT tutor, you deserve someone who has truly mastered the test, not just studied it. Every Agility LSAT tutor has scored a 180, placing them in the 99.9th percentile of all test-takers. We don&rsquo;t compromise on this.</p>
+      </div>
+      <div class="principle">
+        <h3>Focus</h3>
+        <p>All sessions are one-on-one for a reason. Group courses involve unavoidable compromises: moving too slowly through material you&rsquo;ve already mastered, too quickly through material you&rsquo;re still wrestling with. Your score goals are specific to you. Your instruction should be too.</p>
+      </div>
+      <div class="principle">
+        <h3>Structure</h3>
+        <p>Not sure how to spend your study time between sessions? Every tutoring package includes a custom study plan built around your current strengths, weaknesses, and available study hours, so you&rsquo;re never left wondering what to work on next.</p>
+      </div>
+      <div class="principle">
+        <h3>Efficiency</h3>
+        <p>Your time is valuable. We won&rsquo;t waste it on brute-force drilling or generic practice sets. We&rsquo;ll identify exactly what to work on to maximize your score gains, and build custom drills for you when you need them.</p>
+      </div>
+      <div class="principle">
+        <h3>Support</h3>
+        <p>Questions come up between sessions. All tutoring packages include ongoing Q&amp;A support. Send your question by email or text, and receive a response, including custom video explanations where useful, within 24 hours.</p>
+      </div>
+      <div class="principle">
+        <h3>Flexibility</h3>
+        <p>We build a tutoring and study schedule around your availability: weekdays, evenings, or weekends. You set the pace&mdash;we&rsquo;ll be ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: SERVICES ===== -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-heading">Services</h2>
+
+    <h3 class="services-sub" style="text-align:center;">One-on-One Tutoring</h3>
+    <p class="services-intro">All Agility LSAT tutoring is conducted one-on-one, online via Zoom, and tailored to your specific score profile and timeline.</p>
+
+    <h3 class="services-sub" style="text-align:center;">Rates</h3>
+    <table class="rates">
+      <thead>
+        <tr><th></th><th>Per Hour</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Single sessions</td><td>$220</td><td>&mdash;</td></tr>
+        <tr><td>5-hour package</td><td>$195</td><td>$975</td></tr>
+        <tr><td>10-hour package</td><td>$175</td><td>$1,750</td></tr>
+        <tr><td>20-hour package</td><td>$160</td><td>$3,200</td></tr>
+      </tbody>
+    </table>
+    <p class="rates-note">All rates in USD.</p>
+
+    <h3 class="services-sub" style="text-align:center; margin-top:64px;">Free Consultation</h3>
+    <div class="consult-block">
+      <p>Not sure where to start? Book a free 45-minute consultation. We&rsquo;ll review your preparation to date, look at your analytics if you&rsquo;re using an online study platform, and put together a proposed study plan &mdash; no commitment required.</p>
+      <p>To get the most out of our time together, we ask that you complete a brief intake form before booking.</p>
+      <a href="#" class="btn-primary">Book a free consultation &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: GET STARTED ===== -->
+<section id="get-started" class="get-started">
+  <div class="container">
+    <h2 class="section-heading">Get Started</h2>
+    <p>Ready to stop plateauing? Book a free 45-minute consultation and let&rsquo;s build a plan to get you where you want to be.</p>
+    <a href="#" class="btn-primary">Book a free consultation &rarr;</a>
+    <p class="email-line">Or reach us directly at <a href="mailto:hello@agilitylsat.com">hello@agilitylsat.com</a></p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="82" fill="none" stroke="#1a1a1a" stroke-width="4"/><text x="101" y="136" font-family="'Playfair Display', Georgia, serif" font-size="108" font-weight="500" text-anchor="middle" fill="#1a1a1a">A</text></svg>
+    </div>
+    <div class="footer-copy">&copy; 2026 Agility LSAT</div>
+    <div class="footer-email"><a href="mailto:hello@agilitylsat.com">hello@agilitylsat.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
