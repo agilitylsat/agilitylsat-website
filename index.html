@@ -206,22 +206,25 @@
     text-align: center;
   }
   table.rates {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
-    margin-top: 8px;
+    margin: 8px auto 0;
   }
   table.rates th, table.rates td {
-    padding: 16px 20px;
+    padding: 14px 22px;
     text-align: left;
     border: 1px solid var(--border);
     font-size: 15px;
+  }
+  table.rates th:not(:first-child), table.rates td:not(:first-child) {
+    text-align: center;
   }
   table.rates th {
     background: var(--bg-soft);
     font-weight: 600;
   }
   table.rates td:first-child { font-weight: 500; }
-  .rates-note { font-size: 13px; color: #888; margin-top: 12px; text-align: right; }
+  .rates-note { font-size: 13px; color: #888; margin-top: 12px; text-align: center; }
   .consult-block { text-align: center; max-width: 640px; margin: 0 auto; }
   .consult-block p { color: var(--ink-soft); margin-bottom: 16px; }
 
